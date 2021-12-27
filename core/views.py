@@ -64,4 +64,3 @@ class LogOutView(codeshare.views.AuthRequiredView, codeshare.views.BaseAPIView):
 
         return Response({"success": "Successfully logged out."},
                         status=HTTP_200_OK)
-

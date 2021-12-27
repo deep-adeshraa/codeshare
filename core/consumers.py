@@ -1,19 +1,14 @@
 import json
 
-from channels.generic.websocket import AsyncJsonWebsocketConsumer
+
+from codeshare.consumers import BaseJsonWebSocketConsumer
 
 
-class CodeConsumer(AsyncJsonWebsocketConsumer):
+class CodeConsumer(BaseJsonWebSocketConsumer):
     async def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_code']
         self.room_group_name = 'room_%s' % self.room_name
-
-        # Join room group
-        await self.channel_layer.group_add(
-            self.room_group_name,
-            self.channel_name
-        )
-        await self.accept()
+        await super(CodeConsumer, self).connect(group_name=self.room_group_name)
 
     async def disconnect(self, close_code):
         print("Disconnected")
