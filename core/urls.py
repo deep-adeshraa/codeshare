@@ -7,7 +7,7 @@ router = DefaultRouter()
 
 
 websocket_urlpatterns = [
-    url(r'^ws/code/(?P<room_code>\w+)/$', CodeConsumer.as_asgi()),
+    url(r'^ws/code/(?P<session_code>\w+)/$', CodeConsumer.as_asgi()),
 ]
 
 # ViewSet items can be set like this.
