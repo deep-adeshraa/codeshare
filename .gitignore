@@ -1,3 +1,27 @@
 codeshare_env/
 .idea/
 db.sqlite3
+
+
+# frontend
+codeshare-frontend/node_modules
+codeshare-frontend/.pnp
+codeshare-frontend/.pnp.js
+
+# testing
+codeshare-frontend/coverage
+
+# production
+codeshare-frontend/build
+
+# misc
+codeshare-frontend/.DS_Store
+codeshare-frontend/.env.local
+codeshare-frontend/.env.development.local
+codeshare-frontend/.env.test.local
+codeshare-frontend/.env.production.local
+
+codeshare-frontend/npm-debug.log*
+codeshare-frontend/yarn-debug.log*
+codeshare-frontend/yarn-error.log*
+codeshare-frontend/my-ideas.md

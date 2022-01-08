@@ -1,0 +1,135 @@
+/* Font weights */
+$thin: 300;
+$medium: 400;
+$semi: 500;
+
+/* Font colors */
+$text-color: #4a5056;
+$text-lighter: #d7dadc;
+$text-dark: #000000;
+$heading-color: #40454a;
+$label-color: #555a61;
+
+/* Background colors */
+$body-bg: #f6f7f9;
+$header-bg: #414654;
+$header-hover: #363d41;
+$header-light-bg: #4c5365;
+$bulk-bar-bg: #5c647d;
+$sidebar-bg: #fcfcfc;
+
+/* Grays */
+$gray-lightest: #f1f1f1;
+$gray-lighter: #ededed;
+$gray-light: #dddddd;
+$gray-medium: #d1d1d1;
+$gray-medium-dark: #a5a9ad;
+$gray-dark: #8a8a8a;
+$gray-darker: #697077;
+$gray-darkest: #444444;
+
+/* Tags */
+$tag-bg: #f2dede;
+$tag-color: #bb5242;
+
+/* Other colors */
+$blue: #0090cc;
+$red: #f74a58;
+$green: #02bfa0;
+$teal: #687b82;
+$orange: #ec8a52;
+$highlight: #bbf1dd;
+$cream: #fbf7e9;
+$yellow: #fbc02d;
+$cream-dark: #efeadb;
+$hover-blue: #23527c;
+$light-blue: #f5fdff;
+
+$btn-success-bg: $green;
+$btn-success-border: #029a82;
+$btn-success-focus-bg: #19927a;
+$btn-success-focus-border: #007358;
+
+$btn-danger-bg: $red;
+$btn-danger-border: #d43441;
+$btn-danger-focus-bg: #da3f4c;
+$btn-danger-focus-border: #b92e3a;
+
+$btn-warning-bg: $orange;
+$btn-warning-border: #df6627;
+$btn-warning-focus-bg: #d8763e;
+$btn-warning-focus-border: #b9602d;
+
+$btn-primary-bg: $blue;
+$btn-primary-border: #026f9c;
+$btn-primary-focus-bg: #047aab;
+$btn-primary-focus-border: #026f9c;
+
+$border-radius: 3px;
+
+.border {
+	border: 1px solid $gray-medium;
+}
+
+.border-radius {
+	border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-webkit-border-radius: $border-radius;
+}
+
+.flex-center {
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-align-items: center;
+}
+
+.form-err {
+	color: $red;
+	margin-top: -24px;
+	font-size: 11px;
+	margin-left: 5px;
+}
+
+.App {
+	background-color: $gray-lighter;
+}
+
+.modify-editor {
+	display: flex;
+	width: 650px;
+
+	.select-option {
+		flex: 1;
+		margin-right: 10px;
+	}
+}
+
+#problem-description {
+	.description-block {
+		padding-top: 24px;
+		padding-left: 30px;
+	}
+}
+
+#sign-in-container {
+	.login-btn {
+		width: 50%;
+		margin: auto;
+	}
+
+	.right-part {
+		border-left: $gray-light solid 1px;
+	}
+}
+
+#sign-up-container {
+	.signup-btn {
+		width: 50%;
+		margin: auto;
+	}
+
+	.right-part {
+		border-left: $gray-light solid 1px;
+	}
+}
