@@ -1,4 +1,21 @@
+import API_CLIENT from "../Api/baseClient";
+import { setUserLoggedIn } from "../helpers/authHelpers";
+import useForm from "../hooks/useFormHook";
+import validateLoginForm from "../validators/loginFormValidators";
+import InputDiv from "./common/inputDiv";
+
 export default function SignIn() {
+    const login = async () => {
+        try {
+            let res = await API_CLIENT.post('/login/', values);
+            setUserLoggedIn(res.data.token);
+        } catch (e) {
+            setErrors(e.response.data);
+        }
+    }
+
+    let { handleChange, handleSubmit, values, setValues, errors, setErrors } = useForm(login, validateLoginForm);
+
     return (
         <div id="sign-in-container">
             <section className="h-100 gradient-form">
@@ -15,16 +32,11 @@ export default function SignIn() {
                                             </div>
 
                                             <form>
-                                                <div className="form-outline mb-4">
-                                                    <input type="email" id="form2Example11" className="form-control" placeholder="email" />
-                                                </div>
-
-                                                <div className="form-outline mb-4">
-                                                    <input type="password" id="form2Example22" className="form-control" placeholder="password" />
-                                                </div>
+                                                <InputDiv type="email" name="email" placeholder="email" onChange={handleChange} value={values.email} errors={errors} />
+                                                <InputDiv type="password" name="password" placeholder="password" onChange={handleChange} value={values.password} errors={errors} />
 
                                                 <div className="text-center pt-1 mb-5 pb-1 row login-btn">
-                                                    <button className="btn btn-primary btn-block fa-lg mb-3" type="button">Log in</button>
+                                                    <button className="btn btn-primary btn-block fa-lg mb-3" onClick={handleSubmit} type="button">Log in</button>
                                                     <a className="text-muted text-center" href="#!">Forgot password?</a>
                                                 </div>
 

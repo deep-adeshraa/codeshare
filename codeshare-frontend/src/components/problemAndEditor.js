@@ -1,4 +1,4 @@
-import MyAceEditor from "./my-ace-editor";
+import MyAceEditor from "./myAceEditor";
 import Description from "./description";
 
 export default function CodeEditor() {

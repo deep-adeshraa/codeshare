@@ -1,16 +1,20 @@
 import API_CLIENT from "../Api/baseClient"
 import useForm from "../hooks/useFormHook"
 import validateSignupForm from "../validators/signUpFormValidators"
+import { setUserLoggedIn } from "../helpers/authHelpers"
+import InputDiv from "./common/inputDiv"
 
 export default function SignUp() {
-
-    const login = async () => {
-        let data = await API_CLIENT.post('signup/', values);
-        localStorage.setItem("token", data.token);
-        window.location.href = '/code';
+    const signUp = async () => {
+        try {
+            let res = await API_CLIENT.post('/signup/', values);
+            setUserLoggedIn(res.data.token);
+        } catch (e) {
+            setErrors(e.response.data);
+        }
     }
 
-    const { handleChange, handleSubmit, values, errors } = useForm(login, validateSignupForm);
+    const { handleChange, handleSubmit, values, setValues, errors, setErrors } = useForm(signUp, validateSignupForm);
 
     return (
         <div id="sign-up-container">
@@ -27,30 +31,11 @@ export default function SignUp() {
                                             </div>
 
                                             <form>
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" name="first_name" onChange={handleChange} value={values.first_name} className="form-control" placeholder="first name" />
-                                                </div>
-                                                {errors.first_name && (<p className="form-err">{errors.first_name}</p>)}
-
-                                                <div className="form-outline mb-4">
-                                                    <input type="text" name="last_name" onChange={handleChange} value={values.last_name} className="form-control" placeholder="last name" />
-                                                </div>
-                                                {errors.last_name && (<p className="form-err">{errors.last_name}</p>)}
-
-                                                <div className="form-outline mb-4">
-                                                    <input type="email" name="email" onChange={handleChange} value={values.email} className="form-control" placeholder="email" />
-                                                </div>
-                                                {errors.email && (<p className="form-err">{errors.email}</p>)}
-
-                                                <div className="form-outline mb-4">
-                                                    <input type="password" name="password" onChange={handleChange} value={values.password} className="form-control" placeholder="password" />
-                                                </div>
-                                                {errors.password && (<p className="form-err">{errors.password}</p>)}
-
-                                                <div className="form-outline mb-4">
-                                                    <input type="password" name="confirm_password" onChange={handleChange} value={values.confirm_password} className="form-control" placeholder="confirm password" />
-                                                </div>
-                                                {errors.confirm_password && (<p className="form-err">{errors.confirm_password}</p>)}
+                                                <InputDiv type="text" name="first_name" placeholder="first name" onChange={handleChange} value={values.first_name} errors={errors} />
+                                                <InputDiv type="text" name="last_name" placeholder="last name" onChange={handleChange} value={values.last_name} errors={errors}/>
+                                                <InputDiv type="email" name="email" placeholder="email" onChange={handleChange} value={values.email} errors={errors}/>
+                                                <InputDiv type="password" name="password" placeholder="password" onChange={handleChange} value={values.password} errors={errors}/>
+                                                <InputDiv type="password" name="confirm_password" placeholder="confirm password" onChange={handleChange} value={values.confirm_password} errors={errors}/>
 
                                                 <div className="text-center pt-1 mb-5 pb-1 row signup-btn">
                                                     <button className="btn btn-primary btn-block fa-lg mb-3" onClick={handleSubmit} type="button">Sign-up</button>
