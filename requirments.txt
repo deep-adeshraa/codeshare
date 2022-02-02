@@ -21,7 +21,7 @@ constantly==15.1.0
 cryptography==3.3.1
 cupshelpers==1.0
 daphne==3.0.1
-decorator==5.1.0
+decorator==5.1.0t
 defer==1.0.6
 defusedxml==0.7.1
 Django==3.2.10

@@ -1,6 +1,5 @@
 import json
 
-
 from codeshare.consumers import BaseJsonWebSocketConsumer
 
 
@@ -10,7 +9,6 @@ class CodeConsumer(BaseJsonWebSocketConsumer):
         await super(CodeConsumer, self).connect(group_name=self.session_code)
 
     async def disconnect(self, close_code):
-        print("Disconnected")
         # Leave room group
         await self.channel_layer.group_discard(
             self.session_code,

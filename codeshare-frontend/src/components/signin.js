@@ -33,6 +33,7 @@ export default function SignIn() {
 
                                             <form>
                                                 <InputDiv type="email" name="email" placeholder="email" onChange={handleChange} value={values.email} errors={errors} />
+                                                <InputDiv type="hidden" name="user" errors={errors} ></InputDiv>
                                                 <InputDiv type="password" name="password" placeholder="password" onChange={handleChange} value={values.password} errors={errors} />
 
                                                 <div className="text-center pt-1 mb-5 pb-1 row login-btn">

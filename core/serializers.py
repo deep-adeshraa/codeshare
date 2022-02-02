@@ -73,3 +73,25 @@ class SignUpSerializer(serializers.Serializer):
         token = Token.objects.create(user=user)
 
         return token
+
+
+class CodeshareSessionSerializer(serializers.ModelSerializer):
+    host_name = serializers.CharField(source='host.first_name', read_only=True)
+    session_code = serializers.CharField(required=False)
+
+    class Meta:
+        model = core.models.CodeShareSession
+        fields = ('id', 'session_name', 'host_name', 'session_code')
+
+    def validate_session_name(self, value):
+        if not value.isalpha():
+            raise serializers.ValidationError("Please enter only "
+                                              "alphabetical values")
+
+        return value
+
+    def create(self, validated_data):
+        request = self.context.pop('request')
+        host = request.user
+        validated_data['host'] = host
+        return super(CodeshareSessionSerializer, self).create(validated_data)

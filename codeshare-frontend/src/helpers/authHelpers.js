@@ -7,7 +7,7 @@ const isLoggedIn = () => {
 
 const setUserLoggedIn = (token) => {
     localStorage.setItem(AUTH_TOKEN_KEY, token);
-    window.location.href = '/code';
+    window.location.href = '/home';
 }
 
 export { isLoggedIn, setUserLoggedIn };

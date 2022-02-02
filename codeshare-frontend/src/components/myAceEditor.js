@@ -11,6 +11,7 @@ import { useState } from 'react';
 
 
 export default function MyAceEditor() {
+    
     const AVAILABLE_LANGS = [{ name: 'Java', value: 'java'},
                              { name: 'Python', value: 'python'},
                              { name: 'JavaScript', value: 'javascript' }];
@@ -21,7 +22,7 @@ export default function MyAceEditor() {
     const [currentTheme, setCurrentTheme] = useState(AVAILABLE_THEMES[0].name);
 
     return (
-        <div className="col-md-6 mt-2">
+        <div id="my-ace-editor" className="col-md-6 mt-2">
             <div className="modify-editor mb-2">
                 <label className="select-option">
                     Language:
