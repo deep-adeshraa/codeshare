@@ -1,7 +1,7 @@
 codeshare_env/
 .idea/
 db.sqlite3
-
+ignore/
 
 # frontend
 codeshare-frontend/node_modules

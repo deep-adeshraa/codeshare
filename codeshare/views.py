@@ -17,7 +17,13 @@ class BaseAPIView(APIView):
     """
     Parent APIView class to be inherited in entire application with some
     custom modification and removal of redundant code
+
+    not need in ModelViewSet class since it has inbuit validation for
+    model fields
     """
+
+    class Meta:
+        abstract = True
 
     def __init__(self):
         self.serializer = None

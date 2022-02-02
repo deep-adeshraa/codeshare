@@ -13,7 +13,7 @@ class BaseJsonWebSocketConsumer(AsyncJsonWebsocketConsumer):
 
         TODO: check if there is any existing connection for this user.
         """
-        user = self.scope['user']
+        user = self.scope['user']  # this comes from our custom middleware
 
         if not user.is_authenticated:
             self.send({"close": True})
