@@ -25,8 +25,9 @@ class BaseAPIView(APIView):
     class Meta:
         abstract = True
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.serializer = None
+        super().__init__(**kwargs)
 
     def validate_request(self, request, **kwargs):
         """

@@ -78,6 +78,10 @@ class CodeShareSessionView(codeshare.views.AuthRequiredView,
     serializer_class = core.serializers.CodeshareSessionSerializer
 
     def get_serializer_context(self):
+        """
+        Extra context provided to the serializer class.
+        """
+
         context = super().get_serializer_context()
         context['request'] = self.request
 

@@ -16,6 +16,8 @@ router.register(r'session', views.CodeShareSessionView, basename='codeshare-sess
 
 
 # APIView items needs to be set as `as_view()`.
+# TODO: Change APIView to ViewSet to make it consistent since,
+#  ViewSet is inheriting APIView.
 url_patterns = [
     url(r'login/$', views.LoginView.as_view(), name='login-view'),
     url(r'signup/$', views.SignUpView.as_view(), name='signup-view'),

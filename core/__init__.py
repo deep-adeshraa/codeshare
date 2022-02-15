@@ -1,2 +1,1 @@
-# Code related to core functionalities such as login, logout,
-# create sessions etc.
+# Code related to core functionalities such as login, logout, create sessions etc.
